@@ -1,6 +1,11 @@
-0.0.1
+0.0.1          2025 Aug 17
 ======
 - first release
 - added conostants, vowels, finals
 - added extend(), combine(), is_korean(), group()
 - accidently wrote pykor at src, sorry guys 😓
+
+0.0.2          2025 Aug 18
+======
+- fixed issue 1~3
+- added get_sound()
