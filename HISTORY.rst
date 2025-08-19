@@ -9,3 +9,8 @@
 ======
 - fixed issue 1~3
 - added get_sound()
+
+0.0.3          2025 Aug 18
+======
+- yanked 0.0.2
+- fixed issue 4
