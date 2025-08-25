@@ -20,6 +20,10 @@
 ======
 - added from_sound()
 
-0.1.0pre-1     2025 Aug 24
+0.1.0rc-1     2025 Aug 24
 ======
 - added words()
+
+0.1.0         2025 Aug 25
+======
+- fixed issue 5
