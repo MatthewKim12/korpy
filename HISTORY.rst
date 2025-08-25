@@ -19,3 +19,7 @@
 0.0.4          2025 Aug 19
 ======
 - added from_sound()
+
+0.1.0pre-1     2025 Aug 24
+======
+- added words()
