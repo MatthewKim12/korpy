@@ -3,7 +3,7 @@
 - first release
 - added conostants, vowels, finals
 - added extend(), combine(), is_korean(), group()
-- accidently wrote pykor at src, sorry guys 😓
+- accidently wrote pykor at src
 
 0.0.2          2025 Aug 18
 ======
