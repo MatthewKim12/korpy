@@ -27,3 +27,8 @@
 0.1.0         2025 Aug 25
 ======
 - fixed issue 5
+
+0.1.1         2025 Aug 26
+======
+- added from_korean() and to_korean()
+- installation requirement googletrans
