@@ -32,3 +32,7 @@
 ======
 - added from_korean() and to_korean()
 - installation requirement googletrans
+
+0.1.2        2025 Aug 27
+======
+- now previous functions return str
