@@ -36,3 +36,8 @@
 0.1.2        2025 Aug 27
 ======
 - now previous functions return str
+
+0.1.3        2025 Aug 28
+======
+- fixed issue 6
+- words() now have options source and filter
