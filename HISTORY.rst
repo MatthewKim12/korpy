@@ -54,3 +54,7 @@
 ======
 - fixed issue 7~8
 - from_datetime() now gives you 마이크로초 too (but issue 9)
+
+0.2.3        2025 Sep 5
+======
+- fixed issue 9
