@@ -45,3 +45,7 @@
 0.2.0        2025 Aug 31
 ======
 - added to_int(), from_int(), korean_ratio(), fully_korean(), PERCENTAGE, PERCENTAGE_UNTIL_1, and PERCENTAGE_UNTIL_2
+
+0.2.1        2025 Sep 4
+======
+- added to_datetime(), from_datetime()
