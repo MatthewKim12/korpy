@@ -58,3 +58,8 @@
 0.2.3        2025 Sep 5
 ======
 - fixed issue 9
+
+0.3.0        2025 Sep 6
+======
+- added description for all functions and variables
+- added similarity(), accuracy_per_word(), and fix_spelling()
