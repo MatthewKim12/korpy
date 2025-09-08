@@ -68,3 +68,7 @@
 ======
 - lots of system improvements
 - started to fix issue 10
+
+0.3.2        2025 Sep 7
+======
+- added ConcludingRemarksGame(), ConcludingRemarksRobot()
