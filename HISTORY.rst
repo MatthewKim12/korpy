@@ -75,4 +75,5 @@
 
 0.3.3        2025 Sep 8
 ======
+- yanked 0.3.2
 - added ConcludingRemarksRobot's play_game()
