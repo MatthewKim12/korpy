@@ -72,3 +72,7 @@
 0.3.2        2025 Sep 7
 ======
 - added ConcludingRemarksGame(), ConcludingRemarksRobot()
+
+0.3.3        2025 Sep 8
+======
+- added ConcludingRemarksRobot's play_game()
