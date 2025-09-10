@@ -77,3 +77,4 @@
 ======
 - yanked 0.3.2
 - added ConcludingRemarksRobot's play_game()
+- fixed issue 12
