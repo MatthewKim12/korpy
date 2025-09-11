@@ -78,3 +78,7 @@
 - yanked 0.3.2
 - added ConcludingRemarksRobot's play_game()
 - fixed issue 12
+
+0.3.4        2025 Sep 10
+======
+- added ConsonantQuiz(), ConsonantQuizRobot()
