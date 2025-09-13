@@ -82,3 +82,7 @@
 0.3.4        2025 Sep 10
 ======
 - added ConsonantQuiz(), ConsonantQuizRobot()
+
+0.3.5        2025 Sep 12
+======
+- added normalize()
