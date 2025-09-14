@@ -91,3 +91,7 @@
 ======
 - added korpy.experimental
 - removed accuracy_per_word, and moved it to experimental
+
+1.0.1        2025 Sep 14
+======
+- fixed issue #13
