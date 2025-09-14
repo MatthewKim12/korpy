@@ -86,3 +86,8 @@
 0.3.5        2025 Sep 12
 ======
 - added normalize()
+
+1.0.0        2025 Sep 14
+======
+- added korpy.experimental
+- removed accuracy_per_word, and moved it to experimental
