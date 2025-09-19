@@ -95,3 +95,8 @@
 1.0.1        2025 Sep 14
 ======
 - fixed issue #13
+
+1.0.2        2025 Sep 18
+======
+- added typofix_keyboard, typofix_jamo
+- you can get QWERTY from korpy.typofix
