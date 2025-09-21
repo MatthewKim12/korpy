@@ -101,8 +101,12 @@
 - added typofix_keyboard, typofix_jamo
 - you can get QWERTY from korpy.typofix
 
-1.0.3       2025 Sep 21
+1.0.3       2025 Sep 20
 ======
 - now normalize() gives you raw character when no modifications
 - now QWERTY is auto-import
 - added japanese_sound() and symbol_to_korean()
+
+1.1.0       2025 Sep 21
+======
+- added convert_fullwidth() and convert_halfwidth()
