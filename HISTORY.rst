@@ -110,3 +110,9 @@
 1.1.0       2025 Sep 21
 ======
 - added convert_fullwidth() and convert_halfwidth()
+
+1.1.1       2025 Oct 8
+======
+- deleted typofix_jamo
+- fixed similarity function
+- example: korpy.similarity('안녕', '안')    before, it returned 1.0, now, it returns 0.5.
