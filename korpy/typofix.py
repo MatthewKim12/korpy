@@ -30,10 +30,6 @@ def typofix_keyboard(text: str, *, keyboard_map: dict[str, str] = None) -> str:
             raise ValueError(f"Result contains non-Korean character: {char}")
     return text
 
-def typofix_jamo(text: str) -> str:
-    """fix jamo to hangul"""
-    return combine("".join(list(map(normalize, extend(text)))))
-
 def spacing(text: str) -> str:
     """Add spacing between Korean and non-Korean characters"""
     spaced = ""
@@ -41,4 +37,5 @@ def spacing(text: str) -> str:
         spaced += text[i]
         if is_korean(text[i]) != is_korean(text[i+1]):
             spaced += " "
+
     return spaced + text[-1]
