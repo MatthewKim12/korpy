@@ -295,7 +295,7 @@ def similarity(word1: str, word2: str, *, allow_sentence: bool = False, style: s
     if (len(word1.split(" ")) > 1 or len(word2.split(" ")) > 1) and not allow_sentence:
         raise ValueError("sentence found")
     
-    length = min(len(word1), len(word2))
+    length = max(len(word1), len(word2))
     point = 0.0
     for c1, c2 in zip(word1, word2):
         u1, u2 = ord(c1), ord(c2)
@@ -475,4 +475,5 @@ def convert_fullwidth(char: str) -> str:
     """
     if ord(char) >= 0x20 and ord(char) <= 0x7E:
         return chr(ord(char)+0xFEFF)
+
     return char
