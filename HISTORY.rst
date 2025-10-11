@@ -116,3 +116,7 @@
 - deleted typofix_jamo
 - fixed similarity function
 - example: korpy.similarity('안녕', '안')    before, it returned 1.0, now, it returns 0.5.
+
+1.1.2       2025 Oct 11
+======
+- added is_korean_holiday
