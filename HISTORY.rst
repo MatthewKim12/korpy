@@ -120,3 +120,7 @@
 1.1.2       2025 Oct 11
 ======
 - added is_korean_holiday
+
+1.1.3       2025 Oct 14
+======
+- added korpyinfo module (korpy.korpyinfo)
