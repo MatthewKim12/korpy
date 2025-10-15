@@ -128,3 +128,7 @@
 1.1.4       2025 Oct 14
 ======
 - started to fix issue #15
+
+1.1.5       2025 Oct 14
+======
+- another try to fix issue #15
