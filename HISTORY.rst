@@ -124,3 +124,7 @@
 1.1.3       2025 Oct 14
 ======
 - added korpyinfo module (korpy.korpyinfo)
+
+1.1.4       2025 Oct 14
+======
+- started to fix issue #15
