@@ -1,16 +1,13 @@
 """
 a module to give information about korpy
 """
-import os
-import urllib.request
+import requests
 
 def get_release_note() -> str:
-    if not os.path.exists('release_note.rst'):
-        urllib.request.urlretrieve('https://raw.githubusercontent.com/MatthewKim12/korpy/main/HISTORY.rst', 'release_note.rst')
-    with open('release_note.rst', 'rb') as f:
-        release_note = f.read().decode('utf-8')
-        filtered = release_note.replace('\n======\n', '\n').replace('- ', '')
-
-    return filtered
-
-
+    """
+    gets korpy's release notes by .rst format
+    """
+    url = "https://raw.githubusercontent.com/MatthewKim12/korpy/main/HISTORY.rst"
+    response = requests.get(url, headers={"User-Agent": "KorPy/1.0"})
+    response.raise_for_status()
+    return response.text.strip()
