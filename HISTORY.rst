@@ -132,3 +132,9 @@
 1.1.5       2025 Oct 14
 ======
 - another try to fix issue #15
+
+1.1.6       2025 Oct 17
+======
+- now korpy.korpyinfo.get_release_note has __doc__
+- started to use requests
+- fixed issue #15
