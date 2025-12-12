@@ -2,7 +2,6 @@ from typing import Literal, Union, Annotated
 import urllib.request
 from deep_translator import GoogleTranslator
 from datetime import datetime
-from functools import lru_cache
 
 PERCENTAGE: Annotated[str, "a formatting text for percentage (round to the nearest 1%)"] = "%.f%%"
 PERCENTAGE_UNTIL_1: Annotated[str, "a formatting text for percentage (round to the nearest 0.1%)"] = "%.1f%%"
@@ -13,6 +12,9 @@ consonants: Annotated[list[str], "korean consonants (initals)"] = ["ㄱ","ㄲ","
 finals: Annotated[list[str], "korean finals (supports)"] = ["","ㄱ","ㄲ","ㄳ","ㄴ","ㄵ","ㄶ","ㄷ","ㄹ","ㄺ","ㄻ","ㄼ","ㄽ","ㄾ","ㄿ","ㅀ","ㅁ","ㅂ","ㅄ","ㅅ","ㅆ","ㅇ","ㅈ","ㅊ","ㅋ","ㅌ","ㅍ","ㅎ"]
 
 def is_korean(char: str) -> bool:
+    """
+    Checks if the character is korean or not
+    """
     cp = ord(char)
     return (
         0x1100 <= cp < 0x1200 or 
@@ -23,6 +25,9 @@ def is_korean(char: str) -> bool:
     )
 
 def group(group_name: Literal['Hangul Jamo', 'Hangul Compatibility Jamo', 'Hangul Jamo Extended-A', 'Hangul Jamo Extended-B', 'Hangul Syllables']) -> range:
+    """
+    Gives a matching range depending on the group name
+    """
     match group_name:
         case 'Hangul Jamo':
             return range(0x1100, 0x1200)
@@ -44,9 +49,6 @@ def _esc(s: str):
 def _no_finals():
     return [0xAC00 + (L * 21 * 28) + (V * 28) for L in range(19) for V in range(21)]
 
-def _with_finals():
-    return [0xAC00 + (L * 21 * 28) + (V * 28) + T for L in range(19) for V in range(21) for T in range(1, 28)]
-
 def _find(obj, sized):
     try:
         return sized.index(obj)
@@ -54,6 +56,9 @@ def _find(obj, sized):
         return None
 
 def combine(s: Union[str, bytes], *, ensure_korean: bool = True, only_syl: bool = False) -> Union[str, bytes]:
+    """
+    Combines any jamo to a korean string
+    """
     savetype = type(s)
     if isinstance(s, bytes):
         s = s.decode("utf-8")
@@ -84,6 +89,9 @@ def combine(s: Union[str, bytes], *, ensure_korean: bool = True, only_syl: bool 
     return result
 
 def extend(s: Union[str, bytes], *, ensure_korean: bool = True, only_syl: bool = False) -> Union[str, bytes]:
+    """
+    the opposite of combine()
+    """
     savetype = type(s)
     if isinstance(s, bytes):
         s = s.decode("utf-8")
@@ -110,6 +118,9 @@ def extend(s: Union[str, bytes], *, ensure_korean: bool = True, only_syl: bool =
     return result
 
 def get_sound(s: Union[str, bytes], *, only_korean: bool = True) -> Union[str, bytes]:
+    """
+    return the pronounciation of (romanizes) a korean string
+    """
     generated_string = ""
     consonants_match = {"ㄱ": "g", "ㄲ": "kk", "ㄴ": "n", "ㄷ": "d", "ㄸ": "tt", "ㄹ": "r", "ㅁ": "m", "ㅂ": "b", "ㅃ": "pp", "ㅅ": "s", "ㅆ": "ss", "ㅇ": "",  "ㅈ": "j", "ㅉ": "jj", "ㅊ": "ch", "ㅋ": "k", "ㅌ": "t", "ㅍ": "p", "ㅎ": "h"}
     vowels_match = {"ㅏ": "a","ㅐ": "ae","ㅑ": "ya","ㅒ": "yae","ㅓ": "eo","ㅔ": "e","ㅕ": "yeo","ㅖ": "ye","ㅗ": "o","ㅘ": "wa","ㅙ": "wae","ㅚ": "oe","ㅛ": "yo","ㅜ": "u","ㅝ": "wo","ㅞ": "we","ㅟ": "wi","ㅠ": "yu","ㅡ": "eu","ㅢ": "ui","ㅣ": "i"}
@@ -125,6 +136,9 @@ def get_sound(s: Union[str, bytes], *, only_korean: bool = True) -> Union[str, b
     return generated_string
 
 def from_sound(s: Union[str, bytes]) -> Union[str, bytes]:
+    """
+    gets the korean string from the pronounciation (romanized version)
+    """
     if isinstance(s, bytes):
         s = s.decode("utf-8")
     consonants_match = {
@@ -162,6 +176,9 @@ def from_sound(s: Union[str, bytes]) -> Union[str, bytes]:
     return generated_string.encode() if isinstance(s, bytes) else generated_string
 
 def words(*, source: str = None, filter: bool = True) -> list:
+    """
+    gets all the korean words
+    """
     url = "https://raw.githubusercontent.com/acidsound/korean_wordlist/master/wordslistUnique.txt"
     if source != None:
         url = source
@@ -173,16 +190,25 @@ def words(*, source: str = None, filter: bool = True) -> list:
     return words
 
 def to_korean(text: str, *, start: str = None) -> str:
+    """
+    translates a string to korean using deep translator
+    """
     if start == None:
         start = "auto"
     translator = GoogleTranslator(source=start, target="ko")
     return translator.translate(text)
 
 def from_korean(text: str, *, destination: str) -> str:
+    """
+    translates a korean string to another language using deep translator 
+    """
     translator = GoogleTranslator(source="ko", target=destination)
     return translator.translate(text)
 
 def to_int(korean_text: str, *, needs_place_values: bool = True) -> int:
+    """
+    converts a korean numeral to an integer
+    """
     value_match = {"일": 1, "이": 2, "삼": 3, "사": 4, "오": 5,
                    "육": 6, "칠": 7, "팔": 8, "구": 9, "영": 0, "공": 0}
     place_match = {"십":1e+1,"백":1e+2,"천":1e+3,"만":1e+4,"억":1e+8,
@@ -217,6 +243,9 @@ units = ["", "십", "백", "천"]
 big_units = ["", "만", "억", "조", "경"]
 
 def from_int(num: int, *, include_place_values: bool=True) -> str:
+    """
+    converts an integer to a korean numeral
+    """
     if num == 0:
         return "영"
 
@@ -250,6 +279,9 @@ def _convert_chunk(chunk: int, include_place_values=True) -> str:
     return ''.join(reversed(result))
 
 def korean_ratio(text: str, *, style: str = None) -> Union[float, str]:
+    """
+    gets the ratio of how many characters that are korean
+    """
     pct_count_int = 0
     for char in text:
         pct_count_int += is_korean(char)
@@ -260,9 +292,15 @@ def korean_ratio(text: str, *, style: str = None) -> Union[float, str]:
         return style % (pct_float * 100)
 
 def fully_korean(text: str) -> bool:
+    """
+    checks if a string is fully korean
+    """
     return korean_ratio(text, style="%.f%%") == "100%"
 
 def from_datetime(dt: datetime, *, place_values: bool = True, has_seperators: bool = True) -> str:
+    """
+    convert a datetime object to a korean string
+    """
     y = dt.year
     m = dt.month
     d = dt.day
@@ -276,6 +314,9 @@ def from_datetime(dt: datetime, *, place_values: bool = True, has_seperators: bo
         return f"{from_int(y, include_place_values=place_values)} {from_int(m, include_place_values=place_values)} {from_int(d, include_place_values=place_values)} {from_int(h, include_place_values=place_values)} {from_int(m2, include_place_values=place_values)} {from_int(s, include_place_values=place_values)} {from_int(ms, include_place_values=place_values)}"
 
 def to_datetime(text: str, *, needs_place_values: bool = True, needs_seperators: bool = True) -> datetime:
+    """
+    convert a korean string to a datetime object
+    """
     text = text[:-4]
     splitted = text.split(" ")
     if needs_seperators:
@@ -475,5 +516,4 @@ def convert_fullwidth(char: str) -> str:
     """
     if ord(char) >= 0x20 and ord(char) <= 0x7E:
         return chr(ord(char)+0xFEFF)
-
     return char
