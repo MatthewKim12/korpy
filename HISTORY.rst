@@ -138,3 +138,8 @@
 - now korpy.korpyinfo.get_release_note has __doc__
 - started to use requests
 - fixed issue #15
+
+1.2.0rc-1   2025 Dec 11
+======
+- added docstring to all the functions
+- encode() and decode() functions
