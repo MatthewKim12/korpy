@@ -1,4 +1,4 @@
-from core import extend, combine, consonants, vowels, finals
+from .core import extend, combine, consonants, vowels, finals
 
 def _find_in_list(base_list: list, target) -> int:
     for i, obj in enumerate(base_list):
@@ -38,4 +38,5 @@ def decode(data: bytes) -> str:
             vowels[vowel] +
             finals[final]
         )
+
     return korean_text
