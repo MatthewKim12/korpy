@@ -143,3 +143,7 @@
 ======
 - added docstring to all the functions
 - encode() and decode() functions
+
+1.2.0rc-2   2025 Dec 12
+======
+- fixed issue #16
