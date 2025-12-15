@@ -20,7 +20,7 @@
 ======
 - added from_sound()
 
-0.1.0rc-1     2025 Aug 24
+0.1.0rc1     2025 Aug 24
 ======
 - added words()
 
@@ -139,11 +139,15 @@
 - started to use requests
 - fixed issue #15
 
-1.2.0rc-1   2025 Dec 11
+1.2.0rc1   2025 Dec 11
 ======
 - added docstring to all the functions
 - encode() and decode() functions
 
-1.2.0rc-2   2025 Dec 12
+1.2.0rc2   2025 Dec 12
 ======
 - fixed issue #16
+
+1.2.0rc3   2025 Dec 15
+======
+- fixed issue #17
