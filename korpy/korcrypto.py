@@ -32,7 +32,7 @@ def decode(data: bytes) -> str:
     b"\\x12\\0\\x04" -> 18 0 4 -> ㅎㅏㄴ -> 한
     """
     korean_text = ""
-    for consonant, vowel, final in [data[i:i + 3] for i in range(0, data, 3)]:
+    for consonant, vowel, final in [data[i:i + 3] for i in range(0, range(data), 3)]:
         korean_text += combine(
             consonants[consonant] +
             vowels[vowel] +
@@ -40,3 +40,4 @@ def decode(data: bytes) -> str:
         )
 
     return korean_text
+
